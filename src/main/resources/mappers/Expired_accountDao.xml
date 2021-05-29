@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.Dao.UserDao">
+    <resultMap id="Expired_accountMap" type="com.example.demo.Model.Expired_account">
+        <id column="aid" jdbcType="BIGINT" property="aid"/>
+        <result column="time_spend" jdbcType="TIME" property="time_spend"/>
+        <result column="time_wasted" jdbcType="TIME" property="time_wasted"/>
+    </resultMap>
+
+</mapper>

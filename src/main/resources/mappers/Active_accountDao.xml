@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.Dao.Active_accountDao">
+    <resultMap id="Active_accountMap" type="com.example.demo.Model.Active_account">
+        <id column="aid" jdbcType="BIGINT" property="uid"/>
+        <result column="remain_time" jdbcType="TIME" property="remain_time"/>
+        <result column="percent" jdbcType="BIGINT" property="percent"/>
+    </resultMap>
+    <delete id="deleteActive_account" parameterType="long">
+    DELETE FROM active_account where aid = #{aid}
+</delete>
+</mapper>
