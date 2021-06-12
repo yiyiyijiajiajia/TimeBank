@@ -11,15 +11,10 @@ mapper:
 
 
 spring:
-  elasticsearch:
-    rest:
-      uris: 47.100.4.109:9200
-      username: root
-      password: 123456
   datasource:
-    url: jdbc:mysql://47.100.4.109:3306/timebank?useUnicode=true&characterEncoding=utf8&allowMultiQueries=true&serverTimezone=GMT
-    username: root
-    password: Password123456!
+    url: jdbc:mysql://db.homans.world:8809/timebank?useUnicode=true&characterEncoding=utf8&allowMultiQueries=true&serverTimezone=GMT
+    username: temp
+    password: Database0529
     driver-class-name: com.mysql.cj.jdbc.Driver
     hikari:
       connection-test-query: SELECT 1 FROM DUAL
@@ -30,7 +25,7 @@ spring:
   main:
     allow-bean-definition-overriding: true
 rocketmq:
-  nameserver: 47.100.4.109:9876
+  nameserver: db.homans.world:8809
   producer:
     group: producer-group
 redis:

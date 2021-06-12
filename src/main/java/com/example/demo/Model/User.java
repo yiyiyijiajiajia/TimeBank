@@ -5,10 +5,9 @@ import com.example.demo.Base.BaseEntity;
 
 import javax.persistence.Column;
 import javax.persistence.Table;
-import java.util.Date;
 
 @Table(name = "`user`")
-@JSONType(orders = {"uid","life","remain_life", "birthday", })
+@JSONType(orders = {"uid", "life", "birthday", "relife", "spentlife", "phone", "password"})
 public class User extends BaseEntity {
 
     /**
@@ -21,26 +20,37 @@ public class User extends BaseEntity {
      * 密码
      */
     @Column(name = "`life`")
-    private long life;
-
-    /**
-     * 描述
-     */
-    @Column(name = "`remain_life`")
-    private long remain_life;
+    private int life;
 
     /**
      * 描述
      */
     @Column(name = "`birthday`")
-    private Date birthday;
+    private String birthday;
 
+    /**
+     * 描述
+     */
+    @Column(name = "`relife`")
+    private int relife;
 
-    public User(long uid,long life, long remain_life, Date birthday) {
+    @Column(name = "`spentlife`")
+    private int spentlife;
+
+    @Column(name = "`phone`")
+    private String phone;
+
+    @Column(name = "`password`")
+    private String password;
+
+    public User(long uid, int life, String birthday, int relife, int spentlife, String phone, String password) {
         this.uid = uid;
         this.life = life;
-        this.remain_life = remain_life;
         this.birthday = birthday;
+        this.relife = relife;
+        this.spentlife = spentlife;
+        this.phone = phone;
+        this.password = password;
     }
 
 
@@ -56,30 +66,51 @@ public class User extends BaseEntity {
         this.uid = uid;
     }
 
-    public long getLife() {
+    public int getLife() {
         return life;
     }
 
-    public void setLife(long life) {
+    public void setLife(int life) {
         this.life = life;
     }
 
-
-    public long getRemain_life() {
-        return remain_life;
-    }
-
-    public void setRemain_life(long remain_life) {
-        this.remain_life = remain_life;
-    }
-
-    public Date getBirthday() {
+    public String getBirthday() {
         return birthday;
     }
 
-    public void setBirthday(Date birthday) {
+    public void setBirthday(String birthday) {
         this.birthday = birthday;
     }
 
+    public int getRelife() {
+        return relife;
+    }
 
+    public void setRelife(int relife) {
+        this.relife = relife;
+    }
+
+    public int getSpentlife() {
+        return spentlife;
+    }
+
+    public void setSpentlife(int spentlife) {
+        this.spentlife = spentlife;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 }

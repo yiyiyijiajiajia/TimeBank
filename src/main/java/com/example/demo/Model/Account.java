@@ -1,14 +1,13 @@
 package com.example.demo.Model;
 
+import com.alibaba.fastjson.annotation.JSONType;
 import com.example.demo.Base.BaseEntity;
-import org.w3c.dom.Text;
 
 import javax.persistence.Column;
 import javax.persistence.Table;
-import java.sql.Time;
-import java.util.Date;
 
 @Table(name = "`account`")
+@JSONType(orders = {"aid", "uid", "aname", "atime", "retime"})
 public class Account extends BaseEntity {
     @Column(name = "`aid`")
     private long aid;
@@ -19,21 +18,18 @@ public class Account extends BaseEntity {
     @Column(name = "`aname`")
     private String aname;
 
-    @Column(name = "`state`")
-    private long state;
-
     @Column(name = "`atime`")
-    private Time atime;
+    private String atime;
 
-    @Column(name = "`deadline`")
-    private Date deadline;
-    public Account(long aid, long uid,String aname, long state,Time atime,Date deadline) {
+    @Column(name = "`retime`")
+    private String retime;
+
+    public Account(long aid, long uid, String aname, String atime, String retime) {
         this.aid = aid;
         this.uid = uid;
-        this.state = state;
         this.aname = aname;
         this.atime= atime;
-        this.deadline= deadline;
+        this.retime= retime;
 
     }
 
@@ -62,16 +58,14 @@ public class Account extends BaseEntity {
     public void setAname(String aname) {
         this.aname = aname;
     }
-    public long getState(){ return state;}
-    public void setState(long state) {
-        this.state = state;
-    }
-    public Time getAtime(){ return atime;}
-    public void setAtime(Time atime) {
+
+    public String getAtime(){ return atime;}
+
+    public void setAtime(String atime) {
         this.atime = atime;
     }
-    public Date getDeadline(){ return deadline;}
-    public void setDeadline(Date deadline) {
-        this.deadline = deadline;
+    public String getRetime(){ return retime;}
+    public void setRetime(String retime) {
+        this.retime = retime;
     }
 }

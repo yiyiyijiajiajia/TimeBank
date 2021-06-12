@@ -3,9 +3,12 @@
 <mapper namespace="com.example.demo.Dao.UserDao">
 <resultMap id="UserMap" type="com.example.demo.Model.User">
     <id column="uid" jdbcType="BIGINT" property="uid"/>
-    <result column="life" jdbcType="BIGINT" property="life"/>
-    <result column="remain_life" jdbcType="BIGINT" property="remain_life"/>
-    <result column="birthday" jdbcType="DATE" property="birthday"/>
+    <result column="life" jdbcType="INTEGER" property="life"/>
+    <result column="birthday" jdbcType="VARCHAR" property="birthday"/>
+    <result column="relife" jdbcType="INTEGER" property="relife"/>
+    <result column="spentlife" jdbcType="INTEGER" property="spentlife"/>
+    <result column="phone" jdbcType="VARCHAR" property="phone"/>
+    <result column="password" jdbcType="VARCHAR" property="password"/>
 </resultMap>
 <delete id="deleteUser" parameterType="long">
     DELETE FROM user where uid = #{uid}

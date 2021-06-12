@@ -5,7 +5,9 @@
         <id column="actid" jdbcType="BIGINT" property="actid"/>
         <result column="aid" jdbcType="BIGINT" property="aid"/>
         <result column="actname" jdbcType="VARCHAR" property="actname"/>
-        <result column="time" jdbcType="TIME" property="time"/>
+        <result column="time" jdbcType="VARCHAR" property="time"/>
+        <result column="spenttime" jdbcType="VARCHAR" property="spenttime"/>
+        <result column="usedate" jdbcType="VARCHAR" property="usedate"/>
     </resultMap>
     <delete id="deleteActivity" parameterType="long">
     DELETE FROM user where actid = #{actid}

@@ -5,11 +5,10 @@ import com.example.demo.Base.BaseEntity;
 
 import javax.persistence.Column;
 import javax.persistence.Table;
-import java.sql.Time;
 
 
-@Table(name = "`user`")
-@JSONType(orders = {"uid","life","remain_life", "birthday", })
+@Table(name = "`activity`")
+@JSONType(orders = {"actid", "aid", "actname", "time", "spenttime", "usedate"})
 public class Activity extends BaseEntity {
 
     /**
@@ -34,14 +33,21 @@ public class Activity extends BaseEntity {
      * 描述
      */
     @Column(name = "`time`")
-    private Time time;
+    private String time;
 
+    @Column(name = "`spenttime`")
+    private String spenttime;
 
-    public Activity(long actid,long aid, String actname,Time time) {
+    @Column(name = "`usedate`")
+    private String usedate;
+
+    public Activity(long actid, long aid, String actname, String time, String spenttime, String usedate) {
         this.actid = actid;
         this.aid = aid;
         this.actname = actname;
         this.time = time;
+        this.spenttime = spenttime;
+        this.usedate = usedate;
     }
 
 
@@ -74,13 +80,27 @@ public class Activity extends BaseEntity {
         this.actname = actname;
     }
 
-    public Time getTime() {
+    public String getTime() {
         return time;
     }
 
-    public void setTime(Time time) {
+    public void setTime(String time) {
         this.time = time;
     }
 
+    public String getSpenttime() {
+        return spenttime;
+    }
 
+    public void setSpenttime(String spenttime) {
+        this.spenttime = spenttime;
+    }
+
+    public String getUsedate() {
+        return usedate;
+    }
+
+    public void setUsedate(String usedate) {
+        this.usedate = usedate;
+    }
 }
