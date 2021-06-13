@@ -23,15 +23,9 @@ public class Activity extends BaseEntity {
     @Column(name = "`aid`")
     private long aid;
 
-    /**
-     * 描述
-     */
     @Column(name = "`actname`")
     private String actname;
 
-    /**
-     * 描述
-     */
     @Column(name = "`time`")
     private String time;
 

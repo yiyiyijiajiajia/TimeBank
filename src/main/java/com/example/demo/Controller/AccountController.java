@@ -19,7 +19,6 @@ import java.util.List;
 public class AccountController extends BaseController {
     @Autowired
     private AccountService accountService;
-
     /**
      * 列表测试
      */
@@ -29,4 +28,6 @@ public class AccountController extends BaseController {
         List<Account> result = accountService.showAllAccount();
         return FastJsonUtils.resultSuccess(200, "拉取账户列表成功", result);
     }
+
+
 }

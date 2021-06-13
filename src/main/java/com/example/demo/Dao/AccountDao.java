@@ -11,4 +11,5 @@ public interface AccountDao extends MyMapper<Account> {
     List<Account> selectAll();
 
     void deleteAccount(long aid);
+
 }

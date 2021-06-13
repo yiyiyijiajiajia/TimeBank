@@ -1,7 +1,9 @@
 package com.example.demo.Controller;
 
 import com.example.demo.Base.BaseController;
+import com.example.demo.Model.Activity;
 import com.example.demo.Model.User;
+import com.example.demo.Service.ActivityService;
 import com.example.demo.Service.UserService;
 import com.example.demo.util.FastJsonUtils;
 import io.swagger.annotations.Api;
@@ -17,12 +19,12 @@ import java.util.List;
 @Api(description = "活动接口")
 public class ActivityController extends BaseController {
     @Autowired
-    private UserService userService;
+    private ActivityService activityService;
 
     @GetMapping(value = "/all", produces = {"application/json;charset=UTF-8"})
     @ApiOperation(value = "全部活动", notes = "全部活动")
     public String all() {
-        List<User> result = userService.showAllUser();
+        List<Activity> result = activityService.showAllActivity();
         return FastJsonUtils.resultSuccess(200, "拉取活动列表成功", result);
     }
 }

@@ -9,25 +9,18 @@ mapper:
   not-empty: true
   identity: MYSQL
 
-
 spring:
   datasource:
-    url: jdbc:mysql://db.homans.world:8809/timebank?useUnicode=true&characterEncoding=utf8&allowMultiQueries=true&serverTimezone=GMT
-    username: temp
-    password: Database0529
-    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://47.100.4.109:3306/timebank?useUnicode=true&characterEncoding=utf8&allowMultiQueries=true&serverTimezone=GMT
+    username: root
+    password: Password123456!
     hikari:
       connection-test-query: SELECT 1 FROM DUAL
       connection-timeout: 30000
       maximum-pool-size: 20
       max-lifetime: 1800000
       minimum-idle: 5
-  main:
-    allow-bean-definition-overriding: true
-rocketmq:
-  nameserver: db.homans.world:8809
-  producer:
-    group: producer-group
+
 redis:
   key:
     prefix:
