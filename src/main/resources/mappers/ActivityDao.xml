@@ -12,4 +12,12 @@
     <delete id="deleteActivity" parameterType="long">
     DELETE FROM user where actid = #{actid}
 </delete>
+    <insert id="insertActivity" parameterType="Activity">
+        INSERT INTO activity(actid, aid, actname, time, spenttime, usedate)Values(#{actid}, #{aid}, #{actname}, #{time}, #{spenttime}, #{usedate})
+    </insert>
+
+    <select id="searchByAid" resultMap="ActivityMap">
+        select * from `activity`
+        where aid = #{aid}
+    </select>
 </mapper>

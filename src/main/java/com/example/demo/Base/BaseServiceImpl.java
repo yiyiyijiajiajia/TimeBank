@@ -89,6 +89,8 @@ public abstract class BaseServiceImpl<T extends BaseEntity> implements BaseServi
     }
 
 
+
+
     /*@Override
     public int save(T record) {
         int count = 0;

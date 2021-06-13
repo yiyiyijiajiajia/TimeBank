@@ -12,4 +12,5 @@ public interface AccountDao extends MyMapper<Account> {
 
     void deleteAccount(long aid);
 
+    void insertAccount(Account account);
 }

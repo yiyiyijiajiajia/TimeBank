@@ -32,4 +32,7 @@ public class AccountService extends BaseServiceImpl<Account> {
         accountDao.deleteAccount(aid);
     }
 
+    public  void insertAccount(Account account) {
+        accountDao.insertAccount(account);
+    }
 }
