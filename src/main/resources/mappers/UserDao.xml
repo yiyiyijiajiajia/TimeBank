@@ -4,7 +4,7 @@
 <resultMap id="UserMap" type="com.example.demo.Model.User">
     <id column="uid" jdbcType="BIGINT" property="uid"/>
     <result column="life" jdbcType="INTEGER" property="life"/>
-    <result column="birthday" jdbcType="VARCHAR" property="birthday"/>
+    <result column="age" jdbcType="INTEGER" property="age"/>
     <result column="relife" jdbcType="INTEGER" property="relife"/>
     <result column="spentlife" jdbcType="INTEGER" property="spentlife"/>
     <result column="phone" jdbcType="VARCHAR" property="phone"/>
@@ -14,6 +14,6 @@
     DELETE FROM user where uid = #{uid}
 </delete>
     <insert id="insertUser" parameterType="User">
-        INSERT INTO user (uid,life,birthday, relife,spentlife,phone,password) Value(#{uid},#{life},#{birthday},#{relife},#{spentlife},#{phone},#{password})
+        INSERT INTO user (uid,life,age, relife,spentlife,phone,password) Value(#{uid},#{life},#{age},#{relife},#{spentlife},#{phone},#{password})
     </insert>
 </mapper>

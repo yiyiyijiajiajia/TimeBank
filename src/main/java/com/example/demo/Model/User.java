@@ -25,8 +25,8 @@ public class User extends BaseEntity {
     /**
      * 描述
      */
-    @Column(name = "`birthday`")
-    private String birthday;
+    @Column(name = "`age`")
+    private int age;
 
     /**
      * 描述
@@ -43,10 +43,10 @@ public class User extends BaseEntity {
     @Column(name = "`password`")
     private String password;
 
-    public User(long uid, int life, String birthday, int relife, int spentlife, String phone, String password) {
+    public User(long uid, int life, int age, int relife, int spentlife, String phone, String password) {
         this.uid = uid;
         this.life = life;
-        this.birthday = birthday;
+        this.age = age;
         this.relife = relife;
         this.spentlife = spentlife;
         this.phone = phone;
@@ -74,12 +74,12 @@ public class User extends BaseEntity {
         this.life = life;
     }
 
-    public String getBirthday() {
-        return birthday;
+    public int getAge() {
+        return age;
     }
 
-    public void setBirthday(String birthday) {
-        this.birthday = birthday;
+    public void setAge(int age) {
+        this.age = age;
     }
 
     public int getRelife() {
