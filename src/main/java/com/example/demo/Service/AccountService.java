@@ -35,4 +35,12 @@ public class AccountService extends BaseServiceImpl<Account> {
     public  void insertAccount(Account account) {
         accountDao.insertAccount(account);
     }
+
+    public List<Account> searchByAname(String aname) {
+        return accountDao.selectByAname(aname);
+    }
+
+    public void update(Account newAcc) {
+        accountDao.updateByAname(newAcc);
+    }
 }
