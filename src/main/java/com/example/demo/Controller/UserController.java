@@ -154,12 +154,20 @@ public class UserController extends BaseController {
     @PostMapping("/update_info")
     @ApiOperation(value = "修改用户信息", notes = "修改用户信息")
     public String updateInfo(@ApiParam(name = "uid", value = "用户id",required = true)@RequestParam Long uid,
+                             @ApiParam(name = "age", value = "用户年龄",required = true)@RequestParam int age,
+                             @ApiParam(name = "life", value = "预测年龄")@RequestParam(required = false, defaultValue = "100") int life,
                              @ApiParam(name = "name", value = "用户名")@RequestParam(required = false, defaultValue = "") String name,
                              @ApiParam(name = "password", value = "密码")@RequestParam(required = false, defaultValue = "") String password
     ) {
         User newUser=userService.searchByUid(uid).get(0);
         if(!"".equals(password))
             newUser.setPassword(password);
+        if(!"".equals(age))
+            newUser.setAge(age);
+        if(!"".equals(life))
+            newUser.setLife(life);
+        int  relife = newUser.getLife()- newUser.getAge();
+            newUser.setRelife(relife);
         userService.update(newUser);
         return FastJsonUtils.resultSuccess(200, "修改成功", null);
     }

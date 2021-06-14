@@ -22,7 +22,7 @@ public interface UserDao extends MyMapper<User> {
     @Select(value = "select * from user where uid=#{uid}")
     List<User> selectByUid(@Param(value = "uid") long uid);
 
-    @Update(value = "update student set life=#{life}, password=#{password}, age=#{age} where uid=#{uid}")
+    @Update(value = "update user set life=#{life}, password=#{password},relife=#{relife}, age=#{age} where uid=#{uid}")
     void updateByUid(User newUser);
 
 }
