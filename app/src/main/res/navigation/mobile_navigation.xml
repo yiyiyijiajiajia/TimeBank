@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_bank">
+
+    <fragment
+        android:id="@+id/navigation_bank"
+        android:name="com.example.timebank.ui.bank.BankFragment"
+        android:label="@string/title_bank"
+        tools:layout="@layout/fragment_bank" />
+
+    <fragment
+        android:id="@+id/navigation_add"
+        android:name="com.example.timebank.ui.add.AddFragment"
+        android:label="@string/title_add"
+        tools:layout="@layout/fragment_add" />
+
+    <fragment
+        android:id="@+id/navigation_balance"
+        android:name="com.example.timebank.ui.balance.BalanceFragment"
+        android:label="@string/title_balance"
+        tools:layout="@layout/fragment_balance" />
+</navigation>
