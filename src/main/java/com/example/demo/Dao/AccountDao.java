@@ -10,7 +10,7 @@ public interface AccountDao extends MyMapper<Account> {
     @Select(value = "select * from account")
     List<Account> selectAll();
 
-    void deleteAccount(long aid);
+    void deleteByAid(long aid);
 
     void insertAccount(Account account);
 }

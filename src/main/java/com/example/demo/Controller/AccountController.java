@@ -46,4 +46,11 @@ public class AccountController extends BaseController {
         result.put("aid",aid);
         return FastJsonUtils.resultSuccess(200, "保存内容成功", result);
     }
+    @PostMapping(value = "/delete", produces = {"application/json;charset=UTF-8"})
+    @ApiOperation(value = "删除活动", notes = "删除活动")
+    public String delete(@ApiParam(name = "aid", value = "活动id",required = true)@RequestParam long aid
+    ) {
+        accountService.deleteAccount(aid);
+        return FastJsonUtils.resultSuccess(200, "删除account内容成功",null);
+    }
 }

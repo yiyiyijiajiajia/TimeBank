@@ -29,7 +29,7 @@ public class AccountService extends BaseServiceImpl<Account> {
     }
 
     public void deleteAccount(long aid) {
-        accountDao.deleteAccount(aid);
+        accountDao.deleteByAid(aid);
     }
 
     public  void insertAccount(Account account) {

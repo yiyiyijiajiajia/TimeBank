@@ -20,6 +20,7 @@ public interface ActivityDao extends MyMapper<Activity> {
 
     List<Activity> searchByAid(long aid);
 
+    void deleteByActid(long actid);
 
 
     @Update(value = "update activity set actid=#{actid}, aid=#{aid}, actname=#{actname} where time=#{time}")

@@ -9,8 +9,8 @@
         <result column="spenttime" jdbcType="VARCHAR" property="spenttime"/>
         <result column="usedate" jdbcType="VARCHAR" property="usedate"/>
     </resultMap>
-    <delete id="deleteActivity" parameterType="long">
-    DELETE FROM user where actid = #{actid}
+    <delete id="deleteByActid" parameterType="long">
+    DELETE FROM activity where actid = #{actid}
 </delete>
     <insert id="insertActivity" parameterType="Activity">
         INSERT INTO activity(actid, aid, actname, time, spenttime, usedate)Values(#{actid}, #{aid}, #{actname}, #{time}, #{spenttime}, #{usedate})

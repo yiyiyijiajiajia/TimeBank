@@ -56,4 +56,11 @@ public class ActivityController extends BaseController {
             return FastJsonUtils.resultError(404, "获取account信息失败", null);
         }
     }
+    @PostMapping(value = "/delete", produces = {"application/json;charset=UTF-8"})
+    @ApiOperation(value = "删除活动", notes = "删除活动")
+    public String delete(@ApiParam(name = "actid", value = "活动id",required = true)@RequestParam long actid
+    ) {
+        activityService.deleteActivity(actid);
+        return FastJsonUtils.resultSuccess(200, "删除activity内容成功",null);
+    }
 }

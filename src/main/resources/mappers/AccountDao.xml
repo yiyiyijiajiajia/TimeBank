@@ -8,7 +8,7 @@
         <result column="atime" jdbcType="VARCHAR" property="atime"/>
         <result column="retime" jdbcType="VARCHAR" property="retime"/>
     </resultMap>
-    <delete id="deleteAccount" parameterType="long">
+    <delete id="deleteByAid" parameterType="long">
         DELETE FROM account where aid = #{aid}
     </delete>
     <insert id="insertAccount" parameterType="Account">
