@@ -46,4 +46,16 @@ public class AccountController extends BaseController {
         result.put("aid",aid);
         return FastJsonUtils.resultSuccess(200, "保存内容成功", result);
     }
+
+    @PostMapping("/update")
+    @ApiOperation(value = "修改账户信息", notes = "修改账户信息")
+    public String updateInfo(@ApiParam(name = "aname", value = "账户名称",required = true)@RequestParam String aname,
+                             @ApiParam(name = "atime", value = "账户总额")@RequestParam(required = false, defaultValue = "") String atime
+    ) {
+        Account newAcc=accountService.searchByAname(aname).get(0);
+        if(!"".equals(atime))
+            newAcc.setAtime(atime);
+        accountService.update(newAcc);
+        return FastJsonUtils.resultSuccess(200, "修改成功", null);
+    }
 }
