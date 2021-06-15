@@ -11,15 +11,10 @@ import javax.persistence.Table;
 @JSONType(orders = {"actid", "aid", "actname", "time", "spenttime", "usedate"})
 public class Activity extends BaseEntity {
 
-    /**
-     * uid
-     */
+
     @Column(name = "`actid`")
     private long actid;
 
-    /**
-     * 密码
-     */
     @Column(name = "`aid`")
     private long aid;
 
@@ -35,13 +30,17 @@ public class Activity extends BaseEntity {
     @Column(name = "`usedate`")
     private String usedate;
 
-    public Activity(long actid, long aid, String actname, String time, String spenttime, String usedate) {
+    @Column(name = "`aname`")
+    private String aname;
+
+    public Activity(long actid, long aid, String actname, String time, String spenttime, String usedate,String aname) {
         this.actid = actid;
         this.aid = aid;
         this.actname = actname;
         this.time = time;
         this.spenttime = spenttime;
         this.usedate = usedate;
+        this.aname = aname;
     }
 
 
@@ -96,5 +95,13 @@ public class Activity extends BaseEntity {
 
     public void setUsedate(String usedate) {
         this.usedate = usedate;
+    }
+
+    public String getAname() {
+        return aname;
+    }
+
+    public void setAname(String aname) {
+        this.aname = aname;
     }
 }

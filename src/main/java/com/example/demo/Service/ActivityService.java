@@ -37,8 +37,8 @@ public class ActivityService extends BaseServiceImpl<Activity> {
     //public PageInfo<Film> getFilmList(Film record) {
     //}
 
-    public List<Activity> searchByAid(long aid) {
-        return activityDao.searchByAid(aid);
+    public List<Activity> searchByAname(String aname) {
+        return activityDao.searchByAname(aname);
     }
     public void deleteActivity(long actid) {
         activityDao.deleteByActid(actid);

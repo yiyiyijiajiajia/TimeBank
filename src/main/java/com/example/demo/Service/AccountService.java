@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.common.Mapper;
 
 import javax.annotation.Resource;
+import java.sql.Time;
 import java.util.List;
 
 @Service
@@ -28,6 +29,7 @@ public class AccountService extends BaseServiceImpl<Account> {
         return accountDao.selectAll();
     }
 
+
     public void deleteAccount(long aid) {
         accountDao.deleteByAid(aid);
     }
@@ -42,5 +44,8 @@ public class AccountService extends BaseServiceImpl<Account> {
 
     public void update(Account newAcc) {
         accountDao.updateByAname(newAcc);
+    }
+    public void updatestatus(Account newAcc) {
+        accountDao.updatestatus(newAcc);
     }
 }

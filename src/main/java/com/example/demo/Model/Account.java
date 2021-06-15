@@ -5,6 +5,7 @@ import com.example.demo.Base.BaseEntity;
 
 import javax.persistence.Column;
 import javax.persistence.Table;
+import java.sql.Time;
 
 @Table(name = "`account`")
 @JSONType(orders = {"aid", "uid", "aname", "atime", "retime"})

@@ -152,7 +152,7 @@ public class UserController extends BaseController {
     }
 
     @PostMapping("/update_info")
-    @ApiOperation(value = "修改用户信息", notes = "修改用户信息")
+    @ApiOperation(value = "添加年龄和预测", notes = "添加年龄和预测")
     public String updateInfo(@ApiParam(name = "uid", value = "用户id",required = true)@RequestParam Long uid,
                              @ApiParam(name = "age", value = "用户年龄",required = true)@RequestParam int age,
                              @ApiParam(name = "life", value = "预测年龄")@RequestParam(required = false, defaultValue = "100") int life,
@@ -169,7 +169,9 @@ public class UserController extends BaseController {
         int  relife = newUser.getLife()- newUser.getAge();
             newUser.setRelife(relife);
         userService.update(newUser);
-        return FastJsonUtils.resultSuccess(200, "修改成功", null);
+        Map<String,Object> result=new HashMap<>();
+        result.put("relife",relife);
+        return FastJsonUtils.resultSuccess(200, "修改成功", result);
     }
 
 }

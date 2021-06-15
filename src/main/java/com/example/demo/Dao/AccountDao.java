@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
+import java.sql.Time;
 import java.util.List;
 
 public interface AccountDao extends MyMapper<Account> {
@@ -21,4 +22,6 @@ public interface AccountDao extends MyMapper<Account> {
 
     @Update(value = "update account set atime=#{atime} where aname=#{aname}")
     void updateByAname(Account newAcc);
+    @Update(value = "update account set status=1 where aname=#{aname}")
+    void updatestatus(Account newAcc);
 }

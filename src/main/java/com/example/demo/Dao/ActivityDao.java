@@ -18,7 +18,7 @@ public interface ActivityDao extends MyMapper<Activity> {
     @Select(value = "select * from activity where actid=#{actid}")
     List<Activity> selectByActid(@Param(value = "actid") long actid);
 
-    List<Activity> searchByAid(long aid);
+    List<Activity> searchByAname(String aname);
 
     void deleteByActid(long actid);
 

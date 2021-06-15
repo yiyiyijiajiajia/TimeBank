@@ -36,9 +36,10 @@ public class ActivityController extends BaseController {
             @ApiParam(name = "actname", value = "活动名称", required = true) @RequestParam String actname,
             @ApiParam(name = "time", value = "活动时间总额", required = true) @RequestParam String time,
             @ApiParam(name = "spenttime", value = "活动实际使用时间", required = true) @RequestParam String spenttime,
-            @ApiParam(name = "usedate", value = "使用日期", required = true) @RequestParam String usedate){
+            @ApiParam(name = "usedate", value = "使用日期", required = true) @RequestParam String usedate,
+            @ApiParam(name = "aname", value = "账户名称", required = true) @RequestParam String aname){
         long actid= getIdGeneratorUtils().nextId();
-        Activity activity = new Activity(actid, aid, actname, time, spenttime, usedate);
+        Activity activity = new Activity(actid, aid, actname, time, spenttime, usedate,aname);
         activityService.insertActivity(activity);
         Map<String,Object> result=new HashMap<>();
         result.put("aid",aid);
@@ -46,10 +47,10 @@ public class ActivityController extends BaseController {
     }
 
     @GetMapping(value = "/search", produces = {"application/json;charset=UTF-8"})
-    @ApiOperation(value = "通过aid查找账户信息", notes = "通过aid查找账户信息")
-    public String searchByAid(@ApiParam(name = "aid", value = "aid", required = true) @RequestParam long aid) {
+    @ApiOperation(value = "通过aname查找账户信息", notes = "通过aid查找账户信息")
+    public String searchByAid(@ApiParam(name = "aname", value = "aname", required = true) @RequestParam String aname) {
         List<Activity> results;
-        results=activityService.searchByAid(aid);
+        results=activityService.searchByAname(aname);
         if (results.size() == 1) {
             return FastJsonUtils.resultSuccess(200, "获取account信息成功", results.get(0));
         } else {

@@ -14,4 +14,5 @@
     <insert id="insertAccount" parameterType="Account">
         INSERT INTO account(aid, uid, aname, atime, retime)Values(#{aid}, #{uid}, #{aname}, #{atime}, #{retime})
     </insert>
+
 </mapper>
