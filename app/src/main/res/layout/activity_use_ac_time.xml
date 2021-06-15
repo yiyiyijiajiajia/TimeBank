@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.add.AddFragment">
+    tools:context=".UseAcTimeActivity">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/system_bar"
@@ -20,7 +20,7 @@
             android:id="@+id/text_home"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Create Account"
+            android:text="Use Your Time"
             android:layout_gravity="center"
             android:textSize="55dp"
             android:textColor="@color/white"/>
@@ -43,7 +43,7 @@
             android:layout_height="60dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="90dp"
-            android:hint="  Account Name"
+            android:hint="  Task Name"
             android:background="@color/edit" />
 
         <Spinner
@@ -57,7 +57,7 @@
             android:background="@color/edit" />
 
         <TextView
-            android:id='@+id/CA_cancle'
+            android:id='@+id/UT_cancle'
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="cancle"
@@ -67,10 +67,10 @@
             android:layout_marginLeft="160dp"/>
 
         <TextView
-            android:id='@+id/CA_save'
+            android:id='@+id/UT_use'
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="save"
+            android:text="use"
             android:textColor="@color/bg"
             android:textSize="50px"
             android:layout_marginTop="310dp"
@@ -79,6 +79,5 @@
 
 
     </androidx.cardview.widget.CardView>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

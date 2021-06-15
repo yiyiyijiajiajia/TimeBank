@@ -5,4 +5,12 @@
     <string name="title_bank">Bank</string>
     <string name="title_balance">Balance</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string-array name="time">
+        <item>Time Select</item>
+        <item>15min</item>
+        <item>30min</item>
+        <item>1h</item>
+        <item>2h</item>
+        <item>3h</item>
+    </string-array>
 </resources>

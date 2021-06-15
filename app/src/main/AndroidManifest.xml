@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/TimeBank">
+        <activity android:name=".UseAcTimeActivity"></activity>
         <activity android:name=".SetUpActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".InitialActivity">

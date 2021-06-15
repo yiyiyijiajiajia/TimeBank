@@ -21,7 +21,7 @@
             android:layout_height="wrap_content"
             android:text="Set Up Time"
             android:layout_gravity="center"
-            android:textSize="60dp"
+            android:textSize="55dp"
             android:textColor="@color/white"/>
 
     </androidx.cardview.widget.CardView>
