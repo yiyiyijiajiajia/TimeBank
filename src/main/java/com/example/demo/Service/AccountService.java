@@ -42,10 +42,7 @@ public class AccountService extends BaseServiceImpl<Account> {
         return accountDao.selectByAname(aname);
     }
 
-    public void update(Account newAcc) {
-        accountDao.updateByAname(newAcc);
-    }
-    public void updatestatus(Account newAcc) {
-        accountDao.updatestatus(newAcc);
+    public void updateStatusExpired(String aname) {
+        accountDao.updateStatusExpired(aname);
     }
 }

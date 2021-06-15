@@ -10,6 +10,7 @@ import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.Time;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -38,16 +39,18 @@ public class AccountController extends BaseController {
             @ApiParam(name = "uid", value = "用户账号", required = true) @RequestParam long uid,
             @ApiParam(name = "aname", value = "账户名称", required = true) @RequestParam String aname,
             @ApiParam(name = "atime", value = "账户总额", required = true) @RequestParam long atime,
-            @ApiParam(name = "retime", value = "账户余额", required = true) @RequestParam long retime){
+            @ApiParam(name = "retime", value = "账户余额", required = true) @RequestParam Long retime,
+            @ApiParam(name = "retime", value = "账户余额")@RequestParam(required = false, defaultValue = "1") int status){
         long aid= getIdGeneratorUtils().nextId();
-        Account account = new Account(aid, uid, aname, atime, retime);
+        Account account = new Account(aid, uid, aname, atime, retime,status);
         accountService.insertAccount(account);
         Map<String,Object> result=new HashMap<>();
         result.put("aid",aid);
         return FastJsonUtils.resultSuccess(200, "保存内容成功", result);
     }
+
     @PostMapping(value = "/delete", produces = {"application/json;charset=UTF-8"})
-    @ApiOperation(value = "删除活动", notes = "删除活动")
+    @ApiOperation(value = "删除账户", notes = "删除账户")
     public String delete(@ApiParam(name = "aid", value = "活动id",required = true)@RequestParam long aid
     ) {
         accountService.deleteAccount(aid);
@@ -55,14 +58,17 @@ public class AccountController extends BaseController {
     }
 
     @PostMapping("/update")
-    @ApiOperation(value = "修改账户信息", notes = "修改账户信息")
-    public String updateInfo(@ApiParam(name = "aname", value = "账户名称",required = true)@RequestParam String aname,
-                             @ApiParam(name = "atime", value = "账户总额")@RequestParam(required = false, defaultValue = "") long atime
+    @ApiOperation(value = "修改账户状态", notes = "修改账户信息")
+    public String updateInfo(@ApiParam(name = "aname", value = "账户名称",required = true)@RequestParam String aname
     ) {
-        Account newAcc=accountService.searchByAname(aname).get(0);
-        if(!"".equals(atime))
-            newAcc.setAtime(atime);
-        accountService.update(newAcc);
-        return FastJsonUtils.resultSuccess(200, "修改成功", null);
+        List<Account> result;
+        result=accountService.searchByAname(aname);
+        if(result.get(0).getRetime()==0)
+        accountService.updateStatusExpired(aname);
+        List<Account> result1;
+        result1=accountService.searchByAname(aname);
+        int results=result1.get(0).getStatus();
+        return FastJsonUtils.resultSuccess(200, "修改成功", results);
     }
+
 }

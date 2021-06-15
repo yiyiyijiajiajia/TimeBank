@@ -20,8 +20,7 @@ public interface AccountDao extends MyMapper<Account> {
     @Select(value = "select * from account where aname=#{aname}")
     List<Account> selectByAname(@Param("aname") String aname);
 
-    @Update(value = "update account set atime=#{atime} where aname=#{aname}")
-    void updateByAname(Account newAcc);
-    @Update(value = "update account set status=1 where aname=#{aname}")
-    void updatestatus(Account newAcc);
+    @Update(value = "update account set status=0 where aname=#{aname}")
+    void updateStatusExpired(String aname);
+
 }
