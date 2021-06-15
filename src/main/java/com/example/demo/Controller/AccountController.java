@@ -3,6 +3,7 @@ package com.example.demo.Controller;
 import com.example.demo.Base.BaseController;
 import com.example.demo.Model.Account;
 import com.example.demo.Service.AccountService;
+import com.example.demo.Service.ActivityService;
 import com.example.demo.util.FastJsonUtils;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -10,7 +11,6 @@ import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.sql.Time;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -21,6 +21,9 @@ import java.util.Map;
 public class AccountController extends BaseController {
     @Autowired
     private AccountService accountService;
+
+    @Autowired
+    private ActivityService activityService;
 
     /**
      * 列表测试
@@ -40,7 +43,7 @@ public class AccountController extends BaseController {
             @ApiParam(name = "aname", value = "账户名称", required = true) @RequestParam String aname,
             @ApiParam(name = "atime", value = "账户总额", required = true) @RequestParam long atime,
             @ApiParam(name = "retime", value = "账户余额", required = true) @RequestParam Long retime,
-            @ApiParam(name = "retime", value = "账户余额")@RequestParam(required = false, defaultValue = "1") int status){
+            @ApiParam(name = "status", value = "账户余额")@RequestParam(required = false, defaultValue = "1") int status){
         long aid= getIdGeneratorUtils().nextId();
         Account account = new Account(aid, uid, aname, atime, retime,status);
         accountService.insertAccount(account);
@@ -48,7 +51,6 @@ public class AccountController extends BaseController {
         result.put("aid",aid);
         return FastJsonUtils.resultSuccess(200, "保存内容成功", result);
     }
-
     @PostMapping(value = "/delete", produces = {"application/json;charset=UTF-8"})
     @ApiOperation(value = "删除账户", notes = "删除账户")
     public String delete(@ApiParam(name = "aid", value = "活动id",required = true)@RequestParam long aid
@@ -71,4 +73,14 @@ public class AccountController extends BaseController {
         return FastJsonUtils.resultSuccess(200, "修改成功", results);
     }
 
+    @PostMapping("/calculate")
+    @ApiOperation(value = "计算时间", notes = "计算activity所消耗的账户时间")
+    public long calculate(
+            @ApiParam(name = "atime", value = "账户总额", required = true) @RequestParam long atime,
+            @ApiParam(name = "time", value = "activity用时", required = true) @RequestParam long time,
+            @ApiParam(name = "retime", value = "账户余额", required = true) @RequestParam long retime
+    ) {
+        retime = atime - time ;
+        return retime;
+    }
 }

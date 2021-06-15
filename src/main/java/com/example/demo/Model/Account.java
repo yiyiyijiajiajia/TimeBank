@@ -19,9 +19,11 @@ public class Account extends BaseEntity {
     @Column(name = "`aname`")
     private String aname;
 
+    //给account分配的时间
     @Column(name = "`atime`")
     private long atime;
 
+    //account剩余的时间
     @Column(name = "`retime`")
     private Long retime;
 

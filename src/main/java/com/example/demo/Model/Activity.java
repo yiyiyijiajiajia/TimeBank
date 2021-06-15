@@ -11,24 +11,21 @@ import javax.persistence.Table;
 @JSONType(orders = {"actid", "aid", "actname", "time", "spenttime", "usedate"})
 public class Activity extends BaseEntity {
 
-    /**
-     * uid
-     */
+
     @Column(name = "`actid`")
     private long actid;
 
-    /**
-     * 密码
-     */
     @Column(name = "`aid`")
     private long aid;
 
     @Column(name = "`actname`")
     private String actname;
 
+    //给activity分配的时间
     @Column(name = "`time`")
     private long time;
 
+    //activity实际使用的时间
     @Column(name = "`spenttime`")
     private long spenttime;
 
