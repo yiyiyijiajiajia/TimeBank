@@ -5,8 +5,8 @@
         <id column="actid" jdbcType="BIGINT" property="actid"/>
         <result column="aid" jdbcType="BIGINT" property="aid"/>
         <result column="actname" jdbcType="VARCHAR" property="actname"/>
-        <result column="time" jdbcType="VARCHAR" property="time"/>
-        <result column="spenttime" jdbcType="VARCHAR" property="spenttime"/>
+        <result column="time" jdbcType="BIGINT" property="time"/>
+        <result column="spenttime" jdbcType="BIGINT" property="spenttime"/>
         <result column="usedate" jdbcType="VARCHAR" property="usedate"/>
         <result column="aname" jdbcType="VARCHAR" property="aname"/>
     </resultMap>

@@ -5,7 +5,6 @@ import com.example.demo.Base.BaseEntity;
 
 import javax.persistence.Column;
 import javax.persistence.Table;
-import java.sql.Time;
 
 @Table(name = "`account`")
 @JSONType(orders = {"aid", "uid", "aname", "atime", "retime"})
@@ -20,12 +19,12 @@ public class Account extends BaseEntity {
     private String aname;
 
     @Column(name = "`atime`")
-    private String atime;
+    private long atime;
 
     @Column(name = "`retime`")
-    private String retime;
+    private long retime;
 
-    public Account(long aid, long uid, String aname, String atime, String retime) {
+    public Account(long aid, long uid, String aname, long atime, long retime) {
         this.aid = aid;
         this.uid = uid;
         this.aname = aname;
@@ -60,13 +59,13 @@ public class Account extends BaseEntity {
         this.aname = aname;
     }
 
-    public String getAtime(){ return atime;}
+    public long getAtime(){ return atime;}
 
-    public void setAtime(String atime) {
+    public void setAtime(long atime) {
         this.atime = atime;
     }
-    public String getRetime(){ return retime;}
-    public void setRetime(String retime) {
+    public long getRetime(){ return retime;}
+    public void setRetime(long retime) {
         this.retime = retime;
     }
 }

@@ -5,8 +5,8 @@
         <id column="aid" jdbcType="BIGINT" property="aid"/>
         <result column="uid" jdbcType="BIGINT" property="uid"/>
         <result column="aname" jdbcType="VARCHAR" property="aname"/>
-        <result column="atime" jdbcType="VARCHAR" property="atime"/>
-        <result column="retime" jdbcType="VARCHAR" property="retime"/>
+        <result column="atime" jdbcType="BIGINT" property="atime"/>
+        <result column="retime" jdbcType="BIGINT" property="retime"/>
     </resultMap>
     <delete id="deleteByAid" parameterType="long">
         DELETE FROM account where aid = #{aid}

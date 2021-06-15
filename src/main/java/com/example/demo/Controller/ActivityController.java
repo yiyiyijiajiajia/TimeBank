@@ -34,12 +34,12 @@ public class ActivityController extends BaseController {
     public String insert(
             @ApiParam(name = "aid", value = "账户id", required = true) @RequestParam long aid,
             @ApiParam(name = "actname", value = "活动名称", required = true) @RequestParam String actname,
-            @ApiParam(name = "time", value = "活动时间总额", required = true) @RequestParam String time,
-            @ApiParam(name = "spenttime", value = "活动实际使用时间", required = true) @RequestParam String spenttime,
+            @ApiParam(name = "time", value = "活动时间总额", required = true) @RequestParam long time,
+            @ApiParam(name = "spenttime", value = "活动实际使用时间", required = true) @RequestParam long spenttime,
             @ApiParam(name = "usedate", value = "使用日期", required = true) @RequestParam String usedate,
             @ApiParam(name = "aname", value = "账户名称", required = true) @RequestParam String aname){
         long actid= getIdGeneratorUtils().nextId();
-        Activity activity = new Activity(actid, aid, actname, time, spenttime, usedate,aname);
+        Activity activity = new Activity(actid, aid, actname, time, spenttime, usedate, aname);
         activityService.insertActivity(activity);
         Map<String,Object> result=new HashMap<>();
         result.put("aid",aid);
