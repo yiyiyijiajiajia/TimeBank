@@ -22,9 +22,6 @@ public class AccountController extends BaseController {
     @Autowired
     private AccountService accountService;
 
-    @Autowired
-    private ActivityService activityService;
-
     /**
      * 列表测试
      */
@@ -77,9 +74,9 @@ public class AccountController extends BaseController {
     @ApiOperation(value = "计算时间", notes = "计算activity所消耗的账户时间")
     public long calculate(
             @ApiParam(name = "atime", value = "账户总额", required = true) @RequestParam long atime,
-            @ApiParam(name = "time", value = "activity用时", required = true) @RequestParam long time,
-            @ApiParam(name = "retime", value = "账户余额", required = true) @RequestParam long retime
+            @ApiParam(name = "time", value = "activity用时", required = true) @RequestParam long time
     ) {
+        Long retime;
         retime = atime - time ;
         return retime;
     }

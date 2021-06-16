@@ -30,7 +30,7 @@ public class ActivityController extends BaseController {
 
     @ResponseBody
     @PostMapping(value = "/insert", produces = {"application/json;charset=UTF-8"})
-    @ApiOperation(value = "添加活动", notes = "使用账户")
+    @ApiOperation(value = "添加活动", notes = "添加活动")
     public String insert(
             @ApiParam(name = "aid", value = "账户id", required = true) @RequestParam long aid,
             @ApiParam(name = "actname", value = "活动名称", required = true) @RequestParam String actname,
